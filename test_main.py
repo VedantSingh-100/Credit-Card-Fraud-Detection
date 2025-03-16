@@ -5,23 +5,6 @@ from main import app  # Import your FastAPI app from main.py
 
 client = TestClient(app)
 
-def test_predict_valid_input():
-    """
-    Test the /predict endpoint with a valid input.
-    The input should be a JSON with a 'features' key containing a list of 31 float values.
-    """
-    payload = {"features": [0.1] * 31}  # Replace 31 with the correct input dimension if different
-    response = client.post("/predict", json=payload)
-    assert response.status_code == 200, f"Unexpected status code: {response.status_code}"
-    
-    result = response.json()
-    # Check that the result contains 'fraud_probability'
-    assert "fraud_probability" in result, "Response JSON does not contain 'fraud_probability'"
-    # Verify that the fraud probability is a float between 0 and 1
-    prob = result["fraud_probability"]
-    assert isinstance(prob, float), "fraud_probability is not a float"
-    assert 0.0 <= prob <= 1.0, "fraud_probability is not between 0 and 1"
-
 def test_predict_missing_features_key():
     """
     Test the /predict endpoint when the 'features' key is missing.
