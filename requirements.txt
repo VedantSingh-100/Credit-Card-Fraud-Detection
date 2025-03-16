@@ -4,3 +4,6 @@ scikit-learn
 torch>=2.0.0
 matplotlib
 pytest
+fastapi
+mlflow
+pydantic
