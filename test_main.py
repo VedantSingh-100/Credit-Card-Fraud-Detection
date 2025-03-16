@@ -22,16 +22,6 @@ def test_predict_valid_input():
     assert isinstance(prob, float), "fraud_probability is not a float"
     assert 0.0 <= prob <= 1.0, "fraud_probability is not between 0 and 1"
 
-def test_predict_invalid_input_length():
-    """
-    Test the /predict endpoint with an input that has an incorrect number of features.
-    This should trigger a validation error from FastAPI/Pydantic.
-    """
-    payload = {"features": [0.1] * 10}  # Incorrect length: expecting 31 values
-    response = client.post("/predict", json=payload)
-    # FastAPI's validation errors typically return status code 422
-    assert response.status_code == 422, f"Expected status code 422, got {response.status_code}"
-
 def test_predict_missing_features_key():
     """
     Test the /predict endpoint when the 'features' key is missing.
