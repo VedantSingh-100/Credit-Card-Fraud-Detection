@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Machine%20Learning/Deep%20Learning%20Pipeline/mlruns/893939670210511352/f710bc5bc31d43a18bb60ece9ea9e545/artifacts
+end_time: 1742144948885
+entry_point_name: ''
+experiment_id: '893939670210511352'
+lifecycle_stage: active
+run_id: f710bc5bc31d43a18bb60ece9ea9e545
+run_name: handsome-stag-341
+run_uuid: f710bc5bc31d43a18bb60ece9ea9e545
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742144932545
+status: 3
+tags: []
+user_id: Vedant

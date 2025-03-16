@@ -1,0 +1,21 @@
+name: Local CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Build Docker Image
+      run: docker build -t fraud_detection_api .
+
+    - name: Run Unit Tests (if applicable)
+      run: pytest tests/  # If you have tests, run them before deploying
+
+    - name: Run the container locally
+      run: docker run -d -p 8000:80 fraud_detection_api
