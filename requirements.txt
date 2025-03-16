@@ -7,3 +7,4 @@ pytest
 fastapi
 mlflow
 pydantic
+httpx
