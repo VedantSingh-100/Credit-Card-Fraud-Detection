@@ -15,7 +15,7 @@ jobs:
       run: docker build -t fraud_detection_api .
 
     - name: Run Unit Tests (if applicable)
-      run: pytest tests/  # If you have tests, run them before deploying
+      run: pytest test_main.py
 
     - name: Run the container locally
       run: docker run -d -p 8000:80 fraud_detection_api
